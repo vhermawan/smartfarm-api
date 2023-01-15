@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kandang', function (Blueprint $table) {
-            $table->bigIncrements('id_kandang');
+        Schema::create('cages', function (Blueprint $table) {
+            $table->bigIncrements('id_cages');
             $table->bigInteger('id_users')->unsigned();
-            $table->text('alamat');
-            $table->text('keterangan')->nullable();
+            $table->text('address');
+            $table->text('information')->nullable();
             $table->softDeletes();
             $table->timestamps();
 

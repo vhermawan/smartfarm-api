@@ -13,16 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sensor', function (Blueprint $table) {
-            $table->bigIncrements('id_sensor');
-            $table->bigInteger('id_kandang')->unsigned();
-            $table->bigInteger('id_device')->unsigned();
+        Schema::create('sensors', function (Blueprint $table) {
+            $table->bigIncrements('id_sensors');
+            $table->bigInteger('id_cages')->unsigned();
+            $table->bigInteger('id_devices')->unsigned();
             $table->softDeletes();
             $table->timestamps();
 
-            $table->foreign('id_kandang')->references('id_kandang')->on('kandang');
-            $table->foreign('id_device')->references('id_device')->on('device');
-            $table->unique(array('id_device'));
+            $table->foreign('id_cages')->references('id_cages')->on('cages');
+            $table->foreign('id_devices')->references('id_devices')->on('devices');
+            $table->unique(array('id_devices'));
         });
     }
 

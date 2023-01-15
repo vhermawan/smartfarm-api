@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('admin', function (Blueprint $table) {
-            $table->bigIncrements('id_admin');
-            $table->string('nama');
+        Schema::create('admins', function (Blueprint $table) {
+            $table->bigIncrements('id_admins');
+            $table->string('name');
             $table->string('username')->unique();
             $table->string('password');
             $table->softDeletes();

@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('device', function (Blueprint $table) {
-            $table->bigIncrements('id_device');
-            $table->bigInteger('id_ref_sensor')->unsigned();
+        Schema::create('devices', function (Blueprint $table) {
+            $table->bigIncrements('id_devices');
+            $table->bigInteger('id_ref_sensors')->unsigned();
             $table->string('key');
             $table->softDeletes();
             $table->timestamps();
 
-            $table->foreign('id_ref_sensor')->references('id_ref_sensor')->on('ref_sensor');
+            $table->foreign('id_ref_sensors')->references('id_ref_sensors')->on('ref_sensors');
         });
     }
 

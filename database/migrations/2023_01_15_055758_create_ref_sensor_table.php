@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ref_sensor', function (Blueprint $table) {
-            $table->bigIncrements('id_ref_sensor');
-            $table->string('nama');
-            $table->string('satuan');
+        Schema::create('ref_sensors', function (Blueprint $table) {
+            $table->bigIncrements('id_ref_sensors');
+            $table->string('name');
+            $table->string('unit');
             $table->softDeletes();
             $table->timestamps();
         });
