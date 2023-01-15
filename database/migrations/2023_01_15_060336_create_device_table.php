@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->bigIncrements('id_users');
-            $table->string('nama');
-            $table->string('username')->unique();
-            $table->string('password');
-            $table->text('alamat');
+        Schema::create('device', function (Blueprint $table) {
+            $table->bigIncrements('id_device');
+            $table->bigInteger('id_ref_sensor')->unsigned();
+            $table->string('key');
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('id_ref_sensor')->references('id_ref_sensor')->on('ref_sensor');
         });
     }
 
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('device');
     }
 };
