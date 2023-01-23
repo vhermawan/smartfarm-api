@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id_users');
+            $table->bigInteger('id_role')->unsigned();
             $table->string('name');
-            $table->string('email');
-            $table->string('username')->unique();
+            $table->string('email')->unique();
+            $table->string('username')->nullable()->unique();
             $table->string('password');
             $table->text('address');
             $table->softDeletes();
