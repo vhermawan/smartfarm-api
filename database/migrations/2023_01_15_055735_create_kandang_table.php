@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('cages', function (Blueprint $table) {
             $table->bigIncrements('id_cages');
             $table->bigInteger('id_users')->unsigned();
+            $table->string('name');
             $table->text('address');
             $table->text('information')->nullable();
             $table->softDeletes();
