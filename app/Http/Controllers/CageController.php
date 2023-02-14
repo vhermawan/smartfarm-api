@@ -10,7 +10,7 @@ class CageController extends Controller
 {
     public function index(){
       $data = Cages::join('users', 'users.id_users', '=', 'cages.id_users')
-            ->select('cage.*', 'users.name as pemilik')
+            ->select('cages.*', 'users.name as pemilik')
             ->get();
 
       return response()->json([
@@ -34,6 +34,7 @@ class CageController extends Controller
       $data->id_users = Auth::user()->id_users;
       $data->address = $request->address;
       $data->name = $request->name;
+      $data->information = $request->information;
       $data->save();
 
       return response()->json([
@@ -47,7 +48,7 @@ class CageController extends Controller
 
     public function show($id){
       $data = Cages::join('users', 'users.id_users', '=', 'cages.id_users')
-                ->select('cages.*', 'users.nama as pemilik')
+                ->select('cages.*', 'users.name as pemilik')
                 ->where('id_cages',$id)->get();
 
       return response()->json([
